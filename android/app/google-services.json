@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "896951121335",
+    "project_id": "nutriscan-fb46c",
+    "storage_bucket": "nutriscan-fb46c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896951121335:android:8afd1d15ef9afe7ceca432",
+        "android_client_info": {
+          "package_name": "com.example.nutriscan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkLKoEWndoE0-4vSQqourUoQcBRoYrDk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
