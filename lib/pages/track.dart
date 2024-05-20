@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class TrackPage extends StatelessWidget {
   const TrackPage({super.key});
@@ -23,7 +24,8 @@ class TrackPage extends StatelessWidget {
                       contentPadding: const EdgeInsets.all(12),
                       border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey.shade300),
-                        borderRadius: const BorderRadius.all(Radius.circular(99)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(99)),
                       ),
                       prefixIcon: const Icon(IconlyLight.search),
                     ),
@@ -44,20 +46,22 @@ class TrackPage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            offset: Offset(2.0, 2.0),
-            blurRadius: 5.0,
-          ),
-        ],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  offset: Offset(2.0, 2.0),
+                  blurRadius: 5.0,
+                ),
+              ],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildNutrientCard('15kcal', 'Natrium/Sodium'),
-                _buildNutrientCard('12gr', 'Lemak Jenuh'),
-                _buildNutrientCard('10gr', 'Kalori'),
+                _buildCircularIndicator(
+                    'Natrium/Sodium', 1455, 0.4, Colors.green),
+                _buildCircularIndicator(
+                    'Lemak Jenuh', 3523, 0.8, Colors.orange),
+                _buildCircularIndicator('Kalori', 1820, 0.6, Colors.red),
               ],
             ),
           ),
@@ -67,7 +71,10 @@ class TrackPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, bottom: 10),
             child: Text(
               'Track Makanan',
-              style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.brown),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(color: Colors.brown),
             ),
           ),
 
@@ -103,7 +110,7 @@ class TrackPage extends StatelessWidget {
               children: [
                 Text(
                   'Rekomendasi',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 10),
                 _buildRecommendationCard(),
@@ -115,132 +122,119 @@ class TrackPage extends StatelessWidget {
     );
   }
 
-  Widget _buildNutrientCard(String value, String label) {
+  Widget _buildCircularIndicator(
+      String label, int calories, double percent, Color color) {
     return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: LinearGradient(
-              colors: [Colors.pink, Colors.blue],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: Text(
-            value,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
+      children: <Widget>[
+        CircularPercentIndicator(
+          radius: 60.0,
+          lineWidth: 10.0,
+          percent: percent,
+          center: new Text("$calories kcal"),
+          progressColor: color,
         ),
-        const SizedBox(height: 8),
-        Text(label, style: const TextStyle(color: Colors.black54)),
+        SizedBox(height: 8.0),
+        Text(label, style: TextStyle(fontSize: 16.0)),
       ],
     );
   }
+}
 
-  Widget _buildTrackCard(String meal, String foods, String weight) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            offset: Offset(2.0, 2.0),
-            blurRadius: 5.0,
-          ),
-        ],
-      ),
-child: Column(
-  children: [
-    Text(meal, style: const TextStyle(color: Colors.black)),
-    const SizedBox(height: 8),
-    Text(foods, style: const TextStyle(color: Colors.black)),
-    const SizedBox(height: 8),
-    Row(
+Widget _buildTrackCard(String meal, String foods, String weight) {
+  return Container(
+    padding: const EdgeInsets.all(8),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          offset: Offset(2.0, 2.0),
+          blurRadius: 5.0,
+        ),
+      ],
+    ),
+    child: Column(
+      children: [
+        Text(meal, style: const TextStyle(color: Colors.black)),
+        const SizedBox(height: 8),
+        Text(foods, style: const TextStyle(color: Colors.black)),
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            Image.asset(
+              'assets/profil.png',
+              width: 60,
+              height: 60,
+              fit: BoxFit.cover,
+            ),
+          ],
+        ),
+        Row(children: [
+          Text(weight, style: const TextStyle(color: Colors.black)),
+          const SizedBox(width: 8),
+        ])
+      ],
+    ),
+  );
+}
+
+Widget _buildRecommendationCard() {
+  return Container(
+    padding: const EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          offset: Offset(2.0, 2.0),
+          blurRadius: 5.0,
+        ),
+      ],
+    ),
+    child: Row(
       children: [
         Image.asset(
-          'assets/profil.png', 
+          'assets/profil.png',
           width: 60,
           height: 60,
           fit: BoxFit.cover,
         ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Chatime - Taro Milk Tea',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 4),
+              Text('Porsi : 1 Cup Reguler (500ml)'),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildNutrientInfo('Kalori', '399.00 kcal'),
+                  _buildNutrientInfo('Sodium', '12.00 gr'),
+                  _buildNutrientInfo('Lemak Jenuh', '12.00 gr'),
+                ],
+              ),
+            ],
+          ),
+        ),
       ],
     ),
-    Row(
-      children:[
-    Text(weight, style: const TextStyle(color: Colors.black)),
-    const SizedBox(width: 8), 
-    
-      ]
-    )
+  );
+}
 
-
-  ],
-),
-
-    );
-  }
-
-  Widget _buildRecommendationCard() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            offset: Offset(2.0, 2.0),
-            blurRadius: 5.0,
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Image.asset(
-            'assets/profil.png', 
-            width: 60,
-            height: 60,
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Chatime - Taro Milk Tea',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 4),
-                Text('Porsi : 1 Cup Reguler (500ml)'),
-                const SizedBox(height: 8),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _buildNutrientInfo('Kalori', '399.00 kcal'),
-                    _buildNutrientInfo('Sodium', '12.00 gr'),
-                    _buildNutrientInfo('Lemak Jenuh', '12.00 gr'),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNutrientInfo(String label, String value) {
-    return Column(
-      children: [
-        Text(label, style: const TextStyle(color: Colors.black54)),
-        const SizedBox(height: 4),
-        Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
-      ],
-    );
-  }
+Widget _buildNutrientInfo(String label, String value) {
+  return Column(
+    children: [
+      Text(label, style: const TextStyle(color: Colors.black54)),
+      const SizedBox(height: 4),
+      Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
+    ],
+  );
 }
