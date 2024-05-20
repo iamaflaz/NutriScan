@@ -49,7 +49,7 @@ class TrackPage extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
-                  offset: Offset(2.0, 2.0),
+                  offset: const Offset(2.0, 2.0),
                   blurRadius: 5.0,
                 ),
               ],
@@ -71,10 +71,7 @@ class TrackPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, bottom: 10),
             child: Text(
               'Track Makanan',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(color: Colors.brown),
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.brown),
             ),
           ),
 
@@ -87,7 +84,7 @@ class TrackPage extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.3),
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                   blurRadius: 6,
                 ),
               ],
@@ -110,7 +107,7 @@ class TrackPage extends StatelessWidget {
               children: [
                 Text(
                   'Rekomendasi',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 const SizedBox(height: 10),
                 _buildRecommendationCard(),
