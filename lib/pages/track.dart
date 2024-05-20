@@ -44,13 +44,13 @@ class TrackPage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            offset: Offset(2.0, 2.0),
-            blurRadius: 5.0,
-          ),
-        ],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  offset: const Offset(2.0, 2.0),
+                  blurRadius: 5.0,
+                ),
+              ],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -67,7 +67,7 @@ class TrackPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, bottom: 10),
             child: Text(
               'Track Makanan',
-              style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.brown),
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.brown),
             ),
           ),
 
@@ -80,7 +80,7 @@ class TrackPage extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.3),
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                   blurRadius: 6,
                 ),
               ],
@@ -103,7 +103,7 @@ class TrackPage extends StatelessWidget {
               children: [
                 Text(
                   'Rekomendasi',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 const SizedBox(height: 10),
                 _buildRecommendationCard(),
@@ -148,39 +148,35 @@ class TrackPage extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            offset: Offset(2.0, 2.0),
+            offset: const Offset(2.0, 2.0),
             blurRadius: 5.0,
           ),
         ],
       ),
-child: Column(
-  children: [
-    Text(meal, style: const TextStyle(color: Colors.black)),
-    const SizedBox(height: 8),
-    Text(foods, style: const TextStyle(color: Colors.black)),
-    const SizedBox(height: 8),
-    Row(
-      children: [
-        Image.asset(
-          'assets/profil.png', 
-          width: 60,
-          height: 60,
-          fit: BoxFit.cover,
-        ),
-      ],
-    ),
-    Row(
-      children:[
-    Text(weight, style: const TextStyle(color: Colors.black)),
-    const SizedBox(width: 8), 
-    
-      ]
-    )
-
-
-  ],
-),
-
+      child: Column(
+        children: [
+          Text(meal, style: const TextStyle(color: Colors.black)),
+          const SizedBox(height: 8),
+          Text(foods, style: const TextStyle(color: Colors.black)),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Image.asset(
+                'assets/profil.png', 
+                width: 60,
+                height: 60,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(weight, style: const TextStyle(color: Colors.black)),
+              const SizedBox(width: 8), 
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -193,7 +189,7 @@ child: Column(
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            offset: Offset(2.0, 2.0),
+            offset: const Offset(2.0, 2.0),
             blurRadius: 5.0,
           ),
         ],
@@ -213,10 +209,10 @@ child: Column(
               children: [
                 Text(
                   'Chatime - Taro Milk Tea',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 4),
-                Text('Porsi : 1 Cup Reguler (500ml)'),
+                const Text('Porsi : 1 Cup Reguler (500ml)'),
                 const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
