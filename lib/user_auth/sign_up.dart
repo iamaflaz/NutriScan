@@ -44,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image(
-                  image: AssetImage('images/daftar.png'),
+                  image: AssetImage('assets/logo3.png'),
                   height: 300,
                   width: 300,
                 ),
@@ -78,7 +78,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: double.infinity,
                     height: 45,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 108, 199, 111),
+                      color: Colors.orange,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
@@ -113,7 +113,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: Text(
                         "Login",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.orange,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

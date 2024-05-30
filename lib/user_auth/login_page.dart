@@ -48,33 +48,26 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Start Your Trading with Trade Vibe",
+                      "Makan enak tanpa khawatir",
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 20,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      "Get discount and spesial for new member",
+                      "Hidup sehat bersama NutriScan",
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           color: Colors.grey[600],
                           fontSize: 13,
                           fontWeight: FontWeight.normal),
                     ),
-                    Text(
-                      "Your comfort is our priority",
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Colors.grey[600],
-                          fontSize: 13,
-                          fontWeight: FontWeight.normal),
-                    ),
+
                     SizedBox(
                       height: 30,
                     ),
                     Image(
-                      image: AssetImage('images/login.png'),
+                      image: AssetImage('assets/logo3.png'),
                       height: 200,
                       width: 200,
                     ),
@@ -107,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                         width: double.infinity,
                         height: 45,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 108, 199, 111),
+                          color: Colors.orange,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Center(
@@ -184,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text(
                             "Sign Up",
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.orange,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
